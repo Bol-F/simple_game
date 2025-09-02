@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="weapon-selection">
+        <h2>Выбор оружия</h2>
+        <p>Вы победили монстра и получили новое оружие!</p>
+        <div class="weapons">
+            <div class="current-weapon">
+                <h3>Текущее оружие:</h3>
+                <p id="current-weapon-name">Загрузка...</p>
+                <p id="current-weapon-damage">Загрузка...</p>
+            </div>
+            <div class="new-weapon">
+                <h3>Новое оружие:</h3>
+                <p id="new-weapon-name">Загрузка...</p>
+                <p id="new-weapon-damage">Загрузка...</p>
+            </div>
+        </div>
+        <button id="keep-weapon">Оставить текущее оружие</button>
+        <button id="take-new-weapon">Взять новое оружие</button>
+    </div>
+{% endblock %}

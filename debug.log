@@ -1,0 +1,110 @@
+Watching for file changes with StatReloader
+C:\Users\User\PycharmProjects\simple_game\game\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\User\PycharmProjects\simple_game\game\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 4586
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 4586
+"GET /character-creation/ HTTP/1.1" 200 1943
+"GET /static/js/game.js HTTP/1.1" 200 6913
+"GET /static/css/style.css HTTP/1.1" 200 1676
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4637
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 4586
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4637
+"GET /character-creation/ HTTP/1.1" 200 1943
+"GET /static/js/game.js HTTP/1.1" 200 6913
+"GET /static/css/style.css HTTP/1.1" 200 1676
+Watching for file changes with StatReloader
+C:\Users\User\PycharmProjects\simple_game\game\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /character-creation/ HTTP/1.1" 200 1316
+"GET /static/js/game.js HTTP/1.1" 200 15265
+"GET /static/css/style.css HTTP/1.1" 200 3206
+"GET /api/character/creation/ HTTP/1.1" 200 1132
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4637
+"POST /api/character/creation/ HTTP/1.1" 200 213
+"GET /battle/ HTTP/1.1" 200 1911
+"GET /api/character/creation/ HTTP/1.1" 200 1132
+"GET /character-creation/ HTTP/1.1" 200 1316
+"GET /api/character/creation/ HTTP/1.1" 200 1132
+"POST /api/character/creation/ HTTP/1.1" 200 226
+"GET /battle/ HTTP/1.1" 200 1911
+"GET /static/js/game.js HTTP/1.1" 304 0
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /api/character/creation/ HTTP/1.1" 200 1132
+"GET /character-creation/ HTTP/1.1" 200 1316
+"GET /api/character/creation/ HTTP/1.1" 200 1132
+"POST /api/character/creation/ HTTP/1.1" 200 229
+"GET /battle/ HTTP/1.1" 200 1911
+"GET /api/character/creation/ HTTP/1.1" 200 1132
+C:\Users\User\PycharmProjects\simple_game\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\User\PycharmProjects\simple_game\config\settings.py changed, reloading.
+INFO 2025-09-02 22:24:07,068 autoreload 16312 15164 Watching for file changes with StatReloader
+INFO 2025-09-02 22:24:10,795 autoreload 6580 2476 Watching for file changes with StatReloader
+WARNING 2025-09-02 22:24:12,595 log 6580 3576 Not Found: /
+WARNING 2025-09-02 22:24:12,596 basehttp 6580 3576 "GET / HTTP/1.1" 404 4586
+INFO 2025-09-02 22:24:18,039 basehttp 6580 3576 "GET /character-creation/ HTTP/1.1" 200 6227
+INFO 2025-09-02 22:24:18,162 basehttp 6580 3576 "GET /static/css/style.css HTTP/1.1" 200 3206
+INFO 2025-09-02 22:24:18,162 basehttp 6580 17916 "GET /static/js/game.js HTTP/1.1" 200 15336
+INFO 2025-09-02 22:24:18,245 basehttp 6580 3576 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:24:30,958 basehttp 6580 3576 "POST /api/character/creation/ HTTP/1.1" 200 229
+INFO 2025-09-02 22:24:31,000 basehttp 6580 3576 "GET /battle/ HTTP/1.1" 200 1911
+WARNING 2025-09-02 22:24:31,040 log 6580 3576 Not Found: /api/character/current/
+WARNING 2025-09-02 22:24:31,041 basehttp 6580 3576 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:24:34,437 basehttp 6580 3576 "GET /character-creation/ HTTP/1.1" 200 6227
+INFO 2025-09-02 22:24:34,472 basehttp 6580 3576 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:33:55,855 autoreload 6580 2476 C:\Users\User\PycharmProjects\simple_game\game\views.py changed, reloading.
+INFO 2025-09-02 22:33:56,308 autoreload 12688 11832 Watching for file changes with StatReloader
+INFO 2025-09-02 22:34:42,275 autoreload 1068 11516 Watching for file changes with StatReloader
+WARNING 2025-09-02 22:34:43,918 log 1068 2900 Not Found: /
+WARNING 2025-09-02 22:34:43,919 basehttp 1068 2900 "GET / HTTP/1.1" 404 4586
+INFO 2025-09-02 22:34:49,105 basehttp 1068 2900 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:34:49,144 basehttp 1068 16460 "GET /static/js/game.js HTTP/1.1" 304 0
+INFO 2025-09-02 22:34:49,215 basehttp 1068 2900 "GET /static/css/style.css HTTP/1.1" 200 3704
+INFO 2025-09-02 22:34:49,256 basehttp 1068 2900 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:34:53,865 views 1068 2900 Received character creation request: {'class_id': '1', 'strength': 3, 'agility': 3, 'endurance': 1}
+INFO 2025-09-02 22:34:53,866 views 1068 2900 Class ID: 1, Strength: 3, Agility: 3, Endurance: 1
+INFO 2025-09-02 22:34:53,883 views 1068 2900 Character created successfully for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:34:53,900 basehttp 1068 2900 "POST /api/character/creation/ HTTP/1.1" 200 213
+INFO 2025-09-02 22:34:53,939 basehttp 1068 2900 "GET /battle/ HTTP/1.1" 200 1911
+WARNING 2025-09-02 22:34:53,982 log 1068 2900 Not Found: /api/character/current/
+WARNING 2025-09-02 22:34:53,984 basehttp 1068 2900 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:34:57,973 basehttp 1068 2900 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:34:57,987 basehttp 1068 2900 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-02 22:34:58,017 basehttp 1068 2900 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:35:01,730 views 1068 2900 Received character creation request: {'class_id': '2', 'strength': 2, 'agility': 2, 'endurance': 1}
+INFO 2025-09-02 22:35:01,733 views 1068 2900 Class ID: 2, Strength: 2, Agility: 2, Endurance: 1
+INFO 2025-09-02 22:35:01,790 views 1068 2900 Character created successfully for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:35:01,809 basehttp 1068 2900 "POST /api/character/creation/ HTTP/1.1" 200 226
+INFO 2025-09-02 22:35:01,846 basehttp 1068 2900 "GET /battle/ HTTP/1.1" 200 1911
+WARNING 2025-09-02 22:35:01,890 log 1068 2900 Not Found: /api/character/current/
+WARNING 2025-09-02 22:35:01,893 basehttp 1068 2900 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:35:03,795 basehttp 1068 2900 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:35:03,840 basehttp 1068 2900 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:35:06,190 views 1068 2900 Received character creation request: {'class_id': '3', 'strength': 3, 'agility': 3, 'endurance': 3}
+INFO 2025-09-02 22:35:06,191 views 1068 2900 Class ID: 3, Strength: 3, Agility: 3, Endurance: 3
+INFO 2025-09-02 22:35:06,246 views 1068 2900 Character created successfully for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:35:06,261 basehttp 1068 2900 "POST /api/character/creation/ HTTP/1.1" 200 229
+INFO 2025-09-02 22:35:06,293 basehttp 1068 2900 "GET /battle/ HTTP/1.1" 200 1911
+WARNING 2025-09-02 22:35:06,341 log 1068 2900 Not Found: /api/character/current/
+WARNING 2025-09-02 22:35:06,344 basehttp 1068 2900 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:35:07,923 basehttp 1068 2900 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:35:07,936 basehttp 1068 2900 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-02 22:35:07,984 basehttp 1068 2900 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:35:14,989 views 1068 2900 Received character creation request: {'class_id': '3', 'strength': 1, 'agility': 1, 'endurance': 1}
+INFO 2025-09-02 22:35:14,990 views 1068 2900 Class ID: 3, Strength: 1, Agility: 1, Endurance: 1
+INFO 2025-09-02 22:35:15,004 views 1068 2900 Character created successfully for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:35:15,016 basehttp 1068 2900 "POST /api/character/creation/ HTTP/1.1" 200 229
+INFO 2025-09-02 22:35:15,071 basehttp 1068 2900 "GET /battle/ HTTP/1.1" 200 1911
+WARNING 2025-09-02 22:35:15,123 log 1068 2900 Not Found: /api/character/current/
+WARNING 2025-09-02 22:35:15,125 basehttp 1068 2900 "GET /api/character/current/ HTTP/1.1" 404 4670

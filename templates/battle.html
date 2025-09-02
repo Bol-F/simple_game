@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="battle">
+    <h2>Битва</h2>
+    <div class="character-info">
+        <h3>Ваш персонаж</h3>
+        <p>Уровень: <span id="character-level"></span></p>
+        <p>Здоровье: <span id="character-health"></span>/<span id="character-max-health"></span></p>
+        <p>Оружие: <span id="character-weapon"></span></p>
+    </div>
+    <div class="monster-info">
+        <h3>Монстр</h3>
+        <p id="monster-name"></p>
+        <p>Здоровье: <span id="monster-health"></span></p>
+    </div>
+    <div class="battle-log">
+        <h3>Ход битвы</h3>
+        <div id="log-container"></div>
+    </div>
+    <button id="start-battle">Начать битву</button>
+    <div id="battle-result" class="hidden">
+        <h3>Результат битвы</h3>
+        <p id="result-message"></p>
+        <div id="victory-options" class="hidden">
+            <button id="level-up">Повысить уровень</button>
+            <button id="change-weapon">Сменить оружие</button>
+            <button id="continue">Продолжить</button>
+        </div>
+        <div id="defeat-options" class="hidden">
+            <button id="new-character">Создать нового персонажа</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
