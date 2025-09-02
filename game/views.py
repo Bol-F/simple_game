@@ -60,7 +60,7 @@ def get_game_session(session_key):
         logger.warning("Attempt to access game session without valid session key")
         return None, JsonResponse(
             {'error': 'Session not found. Please create a character first.'},
-            status=status.HTTP_404_NOT_FOUND
+            status=status.HTTP_404_NOT_FOUND,
         )
 
     try:
@@ -69,7 +69,7 @@ def get_game_session(session_key):
         logger.warning(f"Game session not found for key: {session_key}")
         return None, JsonResponse(
             {'error': 'Character not found. Please create a character first.'},
-            status=status.HTTP_404_NOT_FOUND
+            status=status.HTTP_404_NOT_FOUND,
         )
 
 
@@ -84,22 +84,21 @@ class CharacterCreationView(APIView):
             logger.error(f"Error retrieving character classes: {str(e)}")
             return Response(
                 {'error': 'Unable to retrieve character classes'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
     @method_decorator(csrf_exempt)
     def post(self, request):
-        logger.info(f"Received character creation request from session: {request.session.session_key}")
+        logger.info(
+            f"Received character creation request from session: {request.session.session_key}"
+        )
 
         # Parse JSON data if content-type is application/json
         if request.content_type == 'application/json':
             try:
                 data = json.loads(request.body)
             except json.JSONDecodeError:
-                return Response(
-                    {'error': 'Invalid JSON data'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
+                return Response({'error': 'Invalid JSON data'}, status=status.HTTP_400_BAD_REQUEST)
         else:
             data = request.POST
 
@@ -109,7 +108,7 @@ class CharacterCreationView(APIView):
             logger.warning("Missing required fields in character creation")
             return Response(
                 {'error': 'Missing required fields: class_id, strength, agility, endurance'},
-                status=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_400_BAD_REQUEST,
             )
 
         try:
@@ -123,17 +122,14 @@ class CharacterCreationView(APIView):
             if any(attr < min_value or attr > max_value for attr in [strength, agility, endurance]):
                 return Response(
                     {'error': f'Attributes must be between {min_value} and {max_value}'},
-                    status=status.HTTP_400_BAD_REQUEST
+                    status=status.HTTP_400_BAD_REQUEST,
                 )
 
             # Validate class exists
             try:
                 character_class = CharacterClass.objects.get(id=class_id)
             except CharacterClass.DoesNotExist:
-                return Response(
-                    {'error': 'Class not found'},
-                    status=status.HTTP_404_NOT_FOUND
-                )
+                return Response({'error': 'Class not found'}, status=status.HTTP_404_NOT_FOUND)
 
             # Ensure session exists
             if not request.session.session_key:
@@ -143,22 +139,18 @@ class CharacterCreationView(APIView):
             # Create character data structure
             character_data = {
                 'class_levels': {character_class.name.lower(): 1},
-                'attributes': {
-                    'strength': strength,
-                    'agility': agility,
-                    'endurance': endurance
-                },
+                'attributes': {'strength': strength, 'agility': agility, 'endurance': endurance},
                 'weapon': {
                     'id': character_class.initial_weapon.id,
                     'name': character_class.initial_weapon.name,
                     'damage': character_class.initial_weapon.damage,
-                    'damage_type': character_class.initial_weapon.damage_type
+                    'damage_type': character_class.initial_weapon.damage_type,
                 },
                 'health': character_class.health_per_level + endurance,
                 'max_health': character_class.health_per_level + endurance,
                 'total_level': 1,
                 'battle_log': [],
-                'consecutive_wins': 0
+                'consecutive_wins': 0,
             }
 
             logger.info(f"Creating character for session {session_key}")
@@ -166,10 +158,7 @@ class CharacterCreationView(APIView):
             # Save or update game session
             game_session, created = GameSession.objects.update_or_create(
                 session_key=session_key,
-                defaults={
-                    'character_data': character_data,
-                    'consecutive_wins': 0
-                }
+                defaults={'character_data': character_data, 'consecutive_wins': 0},
             )
 
             logger.info(f"Game session {'created' if created else 'updated'}")
@@ -179,13 +168,12 @@ class CharacterCreationView(APIView):
             logger.error("Invalid integer value provided for attributes")
             return Response(
                 {'error': 'Strength, agility, and endurance must be valid integers'},
-                status=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_400_BAD_REQUEST,
             )
         except Exception as e:
             logger.error(f"Error creating character: {str(e)}")
             return Response(
-                {'error': 'Internal server error'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                {'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
 
