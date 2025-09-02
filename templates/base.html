@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автобаттлер</title>
+    <title>{% block title %}Автобаттлер{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Автобаттлер</h1>
+            <h1>{% block header %}Автобаттлер{% endblock %}</h1>
         </header>
         <main>
             {% block content %}
@@ -20,6 +21,15 @@
             <p>Тестовое задание для Академии Лесты</p>
         </footer>
     </div>
-    <script src="{% static 'js/game.js' %}"></script>
+
+    <!-- Error and loading elements that can be used on all pages -->
+    <div id="error-message" class="error-message" style="display: none;"></div>
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p id="loading-text">Загрузка...</p>
+    </div>
+
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>

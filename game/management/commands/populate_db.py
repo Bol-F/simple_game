@@ -14,21 +14,11 @@ class Command(BaseCommand):
 
         # Create weapons
         weapons = {
-            "sword": Weapon.objects.create(
-                name="Меч", damage=3, damage_type="slashing"
-            ),
-            "club": Weapon.objects.create(
-                name="Дубина", damage=3, damage_type="bludgeoning"
-            ),
-            "dagger": Weapon.objects.create(
-                name="Кинжал", damage=2, damage_type="piercing"
-            ),
-            "axe": Weapon.objects.create(
-                name="Топор", damage=4, damage_type="slashing"
-            ),
-            "spear": Weapon.objects.create(
-                name="Копье", damage=3, damage_type="piercing"
-            ),
+            "sword": Weapon.objects.create(name="Меч", damage=3, damage_type="slashing"),
+            "club": Weapon.objects.create(name="Дубина", damage=3, damage_type="bludgeoning"),
+            "dagger": Weapon.objects.create(name="Кинжал", damage=2, damage_type="piercing"),
+            "axe": Weapon.objects.create(name="Топор", damage=4, damage_type="slashing"),
+            "spear": Weapon.objects.create(name="Копье", damage=3, damage_type="piercing"),
             "legendary_sword": Weapon.objects.create(
                 name="Легендарный Меч", damage=10, damage_type="slashing"
             ),

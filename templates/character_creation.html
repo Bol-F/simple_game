@@ -1,117 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Автобаттлер - Создание персонажа{% endblock %}
+{% block header %}Автобаттлер - Создание персонажа{% endblock %}
 
 {% block content %}
-    <div class="character-creation">
-        <h2>Создание персонажа</h2>
-        <div class="attributes">
-            <p>Случайные атрибуты:</p>
-            <p>Сила: <span id="strength">?</span></p>
-            <p>Ловкость: <span id="agility">?</span></p>
-            <p>Выносливость: <span id="endurance">?</span></p>
-        </div>
-        <div class="classes">
-            <h3>Выберите класс:</h3>
-            <div class="class-list">
-                {% for class in classes %}
-                    <div class="class-card" data-class-id="{{ class.id }}">
-                        <h4>{{ class.name }}</h4>
-                        <p>Здоровье за уровень: {{ class.health_per_level }}</p>
-                        <p>Начальное оружие: {{ class.initial_weapon.name }}</p>
-                        <p>Бонус 1 уровня: {{ class.level1_bonus }}</p>
-                        <p>Бонус 2 уровня: {{ class.level2_bonus }}</p>
-                        <p>Бонус 3 уровня: {{ class.level3_bonus }}</p>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-        <button id="create-character">Создать персонажа</button>
-        <div id="error-message" class="hidden" style="color: red; margin-top: 10px;"></div>
+<div class="character-creation">
+    <h2>Выберите класс персонажа</h2>
+
+    <div id="error-message" class="error-message"></div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p id="loading-text">Загрузка...</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Generate random attributes (1-3)
-            const strength = Math.floor(Math.random() * 3) + 1;
-            const agility = Math.floor(Math.random() * 3) + 1;
-            const endurance = Math.floor(Math.random() * 3) + 1;
+    <div class="class-list">
+        <!-- Classes will be loaded here by JavaScript -->
+    </div>
 
-            // Display attributes
-            document.getElementById('strength').textContent = strength;
-            document.getElementById('agility').textContent = agility;
-            document.getElementById('endurance').textContent = endurance;
+    <div class="selected-class">
+        <strong>Выбранный класс:</strong> <span id="selected-class-name">Не выбран</span>
+    </div>
 
-            // Store attributes for later use
-            const attributes = {strength, agility, endurance};
+    <div class="attributes">
+        <h3>Характеристики персонажа</h3>
+        <div class="attribute">
+            <span>Сила:</span>
+            <span id="strength">-</span>
+        </div>
+        <div class="attribute">
+            <span>Ловкость:</span>
+            <span id="agility">-</span>
+        </div>
+        <div class="attribute">
+            <span>Выносливость:</span>
+            <span id="endurance">-</span>
+        </div>
 
-            let selectedClassId = null;
+        <button id="reroll-attributes" class="small-button">Перебросить характеристики</button>
+    </div>
 
-            // Add click event listeners to class cards
-            const classCards = document.querySelectorAll('.class-card');
-            classCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    // Remove selection from all cards
-                    classCards.forEach(c => c.classList.remove('selected'));
+    <button id="create-character" disabled>Создать персонажа</button>
+</div>
+{% endblock %}
 
-                    // Add selection to clicked card
-                    this.classList.add('selected');
-
-                    // Store the selected class ID
-                    selectedClassId = this.dataset.classId;
-
-                    // Clear any error message
-                    document.getElementById('error-message').classList.add('hidden');
-                    document.getElementById('error-message').textContent = '';
-
-                    console.log('Selected class ID:', selectedClassId);
-                });
-            });
-
-            // Add event listener to create character button
-            document.getElementById('create-character').addEventListener('click', function () {
-                console.log('Create button clicked');
-                console.log('Selected class ID:', selectedClassId);
-
-                if (!selectedClassId) {
-                    const errorDiv = document.getElementById('error-message');
-                    errorDiv.textContent = 'Пожалуйста, выберите класс';
-                    errorDiv.classList.remove('hidden');
-                    return;
-                }
-
-                // Create character via API
-                fetch('/api/character/creation/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': getCookie('csrftoken')
-                    },
-                    body: JSON.stringify({
-                        class_id: selectedClassId,
-                        strength: attributes.strength,
-                        agility: attributes.agility,
-                        endurance: attributes.endurance
-                    })
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (data.error) {
-                            alert(data.error);
-                            return;
-                        }
-
-                        console.log('Character created successfully:', data);
-                        window.location.href = '/battle/';
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Ошибка при создании персонажа: ' + error.message);
-                    });
-            });
-        });
-    </script>
+{% block scripts %}
+<script src="{% static 'js/character_creation.js' %}"></script>
 {% endblock %}

@@ -225,3 +225,121 @@ INFO 2025-09-02 22:51:22,151 autoreload 13156 15420 C:\Users\User\PycharmProject
 INFO 2025-09-02 22:51:22,787 autoreload 10348 16124 Watching for file changes with StatReloader
 INFO 2025-09-02 22:51:39,818 autoreload 10348 16124 C:\Users\User\PycharmProjects\simple_game\game\models.py changed, reloading.
 INFO 2025-09-02 22:51:40,349 autoreload 7092 9932 Watching for file changes with StatReloader
+INFO 2025-09-02 23:07:35,863 autoreload 7276 8612 Watching for file changes with StatReloader
+WARNING 2025-09-02 23:07:38,375 log 7276 13140 Not Found: /
+WARNING 2025-09-02 23:07:38,376 basehttp 7276 13140 "GET / HTTP/1.1" 404 4586
+INFO 2025-09-02 23:07:49,224 basehttp 7276 13140 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 23:07:49,240 basehttp 7276 13140 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-02 23:07:49,241 basehttp 7276 10528 "GET /static/js/game.js HTTP/1.1" 304 0
+INFO 2025-09-02 23:07:49,262 views 7276 13140 Found 3 character classes
+INFO 2025-09-02 23:07:49,282 basehttp 7276 13140 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 23:07:50,762 basehttp 7276 13140 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 23:07:50,785 views 7276 13140 Found 3 character classes
+INFO 2025-09-02 23:07:50,800 basehttp 7276 13140 "GET /api/character/creation/ HTTP/1.1" 200 1132
+WARNING 2025-09-02 23:07:53,800 log 7276 13140 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:07:53,851 basehttp 7276 13140 "POST /api/character/creation/ HTTP/1.1" 403 2591
+WARNING 2025-09-02 23:09:49,487 log 7276 13140 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:09:49,540 basehttp 7276 13140 "POST /api/character/creation/ HTTP/1.1" 403 2591
+INFO 2025-09-02 23:24:28,311 basehttp 7276 5648 "GET /character-creation/ HTTP/1.1" 200 7245
+INFO 2025-09-02 23:24:28,328 basehttp 7276 5648 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-02 23:24:28,480 basehttp 7276 8628 "GET /static/js/game.js HTTP/1.1" 200 18045
+INFO 2025-09-02 23:24:28,490 views 7276 8628 Found 3 character classes
+INFO 2025-09-02 23:24:28,547 basehttp 7276 8628 "GET /api/character/creation/ HTTP/1.1" 200 1132
+WARNING 2025-09-02 23:24:31,655 log 7276 8628 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:24:31,741 basehttp 7276 8628 "POST /api/character/creation/ HTTP/1.1" 403 2591
+INFO 2025-09-02 23:31:19,554 autoreload 8964 10900 Watching for file changes with StatReloader
+INFO 2025-09-02 23:31:36,018 basehttp 7276 4156 "GET /character-creation/ HTTP/1.1" 200 38207
+INFO 2025-09-02 23:31:36,044 views 7276 4156 Found 3 character classes
+INFO 2025-09-02 23:31:36,057 basehttp 7276 4156 "GET /api/character/creation/ HTTP/1.1" 200 1132
+WARNING 2025-09-02 23:31:41,376 log 7276 4156 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:31:41,430 basehttp 7276 4156 "POST /api/character/creation/ HTTP/1.1" 403 2591
+INFO 2025-09-02 23:37:01,384 basehttp 7276 15176 "GET /character-creation/ HTTP/1.1" 200 15291
+INFO 2025-09-02 23:37:01,404 views 7276 15176 Found 3 character classes
+INFO 2025-09-02 23:37:01,414 basehttp 7276 15176 "GET /api/character/creation/ HTTP/1.1" 200 1132
+WARNING 2025-09-02 23:37:06,152 log 7276 15176 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:37:06,207 basehttp 7276 15176 "POST /api/character/creation/ HTTP/1.1" 403 2591
+WARNING 2025-09-02 23:37:07,626 log 7276 15176 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:37:07,648 basehttp 7276 15176 "POST /api/character/creation/ HTTP/1.1" 403 2591
+WARNING 2025-09-02 23:37:08,633 log 7276 15176 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:37:08,689 basehttp 7276 15176 "POST /api/character/creation/ HTTP/1.1" 403 2591
+WARNING 2025-09-02 23:37:13,936 log 7276 15176 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:37:13,993 basehttp 7276 15176 "POST /api/character/creation/ HTTP/1.1" 403 2591
+WARNING 2025-09-02 23:37:23,717 log 7276 15176 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /api/character/creation/
+WARNING 2025-09-02 23:37:23,772 basehttp 7276 15176 "POST /api/character/creation/ HTTP/1.1" 403 2591
+INFO 2025-09-02 23:43:39,585 autoreload 7276 8612 C:\Users\User\PycharmProjects\simple_game\game\urls.py changed, reloading.
+INFO 2025-09-02 23:43:39,911 autoreload 2624 1380 Watching for file changes with StatReloader
+INFO 2025-09-02 23:44:30,145 autoreload 2624 1380 C:\Users\User\PycharmProjects\simple_game\game\views.py changed, reloading.
+INFO 2025-09-02 23:44:30,463 autoreload 14444 7420 Watching for file changes with StatReloader
+INFO 2025-09-02 23:53:31,915 autoreload 14444 7420 C:\Users\User\PycharmProjects\simple_game\config\settings.py changed, reloading.
+INFO 2025-09-02 23:53:32,469 autoreload 18036 15944 Watching for file changes with StatReloader
+INFO 2025-09-02 23:53:43,868 basehttp 18036 14484 "GET /character-creation/ HTTP/1.1" 200 15291
+INFO 2025-09-02 23:53:43,882 views 18036 14484 Found 3 character classes
+INFO 2025-09-02 23:53:43,897 basehttp 18036 14484 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 23:53:54,124 autoreload 18052 8344 Watching for file changes with StatReloader
+WARNING 2025-09-02 23:53:56,497 log 18052 8744 Not Found: /
+WARNING 2025-09-02 23:53:56,497 basehttp 18052 8744 "GET / HTTP/1.1" 404 4876
+INFO 2025-09-02 23:54:00,160 basehttp 18052 8744 "GET /character-creation/ HTTP/1.1" 200 15291
+INFO 2025-09-02 23:54:00,283 views 18052 8744 Found 3 character classes
+INFO 2025-09-02 23:54:00,289 basehttp 18052 8744 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 23:54:05,852 basehttp 18052 8744 "GET /character-creation/ HTTP/1.1" 200 15291
+INFO 2025-09-02 23:54:05,869 views 18052 8744 Found 3 character classes
+INFO 2025-09-02 23:54:05,878 basehttp 18052 8744 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 23:54:09,726 views 18052 8744 Received character creation request from session: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 23:54:09,731 views 18052 8744 Creating character for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 23:54:09,746 views 18052 8744 Game session updated
+INFO 2025-09-02 23:54:09,767 basehttp 18052 8744 "POST /api/character/creation/ HTTP/1.1" 200 234
+INFO 2025-09-02 23:54:09,788 basehttp 18052 8744 "GET /battle/ HTTP/1.1" 200 15291
+INFO 2025-09-02 23:54:09,804 views 18052 8744 Found 3 character classes
+INFO 2025-09-02 23:54:09,816 basehttp 18052 8744 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 23:54:16,414 views 18052 8744 Received character creation request from session: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 23:54:16,418 views 18052 8744 Creating character for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 23:54:16,427 views 18052 8744 Game session updated
+INFO 2025-09-02 23:54:16,443 basehttp 18052 8744 "POST /api/character/creation/ HTTP/1.1" 200 250
+INFO 2025-09-02 23:54:16,463 basehttp 18052 8744 "GET /battle/ HTTP/1.1" 200 15291
+INFO 2025-09-02 23:54:16,477 views 18052 8744 Found 3 character classes
+INFO 2025-09-02 23:54:16,487 basehttp 18052 8744 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 23:54:23,398 views 18052 8744 Received character creation request from session: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 23:54:23,403 views 18052 8744 Creating character for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 23:54:23,413 views 18052 8744 Game session updated
+INFO 2025-09-02 23:54:23,430 basehttp 18052 8744 "POST /api/character/creation/ HTTP/1.1" 200 250
+INFO 2025-09-02 23:54:23,458 basehttp 18052 8744 "GET /battle/ HTTP/1.1" 200 15291
+INFO 2025-09-02 23:54:23,468 views 18052 8744 Found 3 character classes
+INFO 2025-09-02 23:54:23,481 basehttp 18052 8744 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-03 00:15:19,896 basehttp 18052 1548 "GET /character-creation/ HTTP/1.1" 200 7526
+INFO 2025-09-03 00:15:20,024 basehttp 18052 1548 "GET /static/css/style.css HTTP/1.1" 200 5510
+INFO 2025-09-03 00:22:10,612 autoreload 18052 8344 C:\Users\User\PycharmProjects\simple_game\game\urls.py changed, reloading.
+INFO 2025-09-03 00:22:10,928 autoreload 8796 15136 Watching for file changes with StatReloader
+INFO 2025-09-03 00:22:18,717 autoreload 11800 16628 Watching for file changes with StatReloader
+WARNING 2025-09-03 00:22:21,412 log 11800 12700 Not Found: /
+WARNING 2025-09-03 00:22:21,412 basehttp 11800 12700 "GET / HTTP/1.1" 404 4876
+INFO 2025-09-03 00:22:28,175 basehttp 11800 12700 "GET /character-creation/ HTTP/1.1" 200 5600
+INFO 2025-09-03 00:22:28,271 basehttp 11800 12700 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-03 00:23:08,710 basehttp 11800 12700 "GET /battle/ HTTP/1.1" 200 2698
+INFO 2025-09-03 00:23:08,791 basehttp 11800 12700 "GET /static/js/battle.js HTTP/1.1" 200 10964
+INFO 2025-09-03 00:23:08,798 views 11800 12700 Retrieved character for session: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-03 00:23:08,804 basehttp 11800 12700 "GET /api/character/current/ HTTP/1.1" 200 250
+WARNING 2025-09-03 00:23:08,813 log 11800 12700 Not Found: /api/battle/
+WARNING 2025-09-03 00:23:08,814 basehttp 11800 12700 "GET /api/battle/ HTTP/1.1" 404 33
+INFO 2025-09-03 00:23:13,499 basehttp 11800 12700 "GET /character-creation/ HTTP/1.1" 200 5600
+INFO 2025-09-03 00:23:13,506 basehttp 11800 12700 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-03 00:26:19,567 basehttp 11800 12700 "GET /character-creation/ HTTP/1.1" 200 2281
+INFO 2025-09-03 00:26:19,579 basehttp 11800 13420 "GET /static/css/style.css HTTP/1.1" 200 7039
+INFO 2025-09-03 00:26:19,579 basehttp 11800 12700 "GET /static/js/character_creation.js HTTP/1.1" 200 9402
+INFO 2025-09-03 00:26:19,595 views 11800 13420 Found 3 character classes
+INFO 2025-09-03 00:26:19,602 basehttp 11800 13420 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-03 00:26:22,502 basehttp 11800 13420 "GET /character-creation/ HTTP/1.1" 200 2281
+INFO 2025-09-03 00:26:22,511 basehttp 11800 12700 "GET /static/js/character_creation.js HTTP/1.1" 304 0
+INFO 2025-09-03 00:26:22,512 basehttp 11800 13420 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-03 00:26:22,518 views 11800 13420 Found 3 character classes
+INFO 2025-09-03 00:26:22,525 basehttp 11800 13420 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-03 00:26:29,460 views 11800 13420 Received character creation request from session: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-03 00:26:29,461 views 11800 13420 Creating character for session kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-03 00:26:29,470 views 11800 13420 Game session updated
+INFO 2025-09-03 00:26:29,476 basehttp 11800 13420 "POST /api/character/creation/ HTTP/1.1" 200 234
+INFO 2025-09-03 00:26:29,490 basehttp 11800 13420 "GET /battle/ HTTP/1.1" 200 2698
+INFO 2025-09-03 00:26:29,498 basehttp 11800 12700 "GET /static/js/battle.js HTTP/1.1" 304 0
+INFO 2025-09-03 00:26:29,499 basehttp 11800 13420 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-03 00:26:29,504 views 11800 12700 Retrieved character for session: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-03 00:26:29,511 basehttp 11800 12700 "GET /api/character/current/ HTTP/1.1" 200 234
+WARNING 2025-09-03 00:26:29,518 log 11800 12700 Not Found: /api/battle/
+WARNING 2025-09-03 00:26:29,519 basehttp 11800 12700 "GET /api/battle/ HTTP/1.1" 404 33

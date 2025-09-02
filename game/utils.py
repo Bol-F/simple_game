@@ -65,9 +65,7 @@ def simulate_battle(character_data, monster):
     while char_health > 0 and monster_health > 0:
         if attacker == "character":
             # Character's turn to attack
-            damage, log_entry = calculate_damage(
-                character_data, monster, turn, character_turns
-            )
+            damage, log_entry = calculate_damage(character_data, monster, turn, character_turns)
             battle_log.append(log_entry)
 
             if damage > 0:
@@ -96,9 +94,7 @@ def simulate_battle(character_data, monster):
                 damage = monster.weapon_damage + monster.strength
 
                 # Apply character defenses
-                damage = apply_defenses(
-                    character_data, monster, damage, turn, character_turns
-                )
+                damage = apply_defenses(character_data, monster, damage, turn, character_turns)
 
                 if damage > 0:
                     char_health -= damage
@@ -131,9 +127,7 @@ def calculate_damage(character_data, monster, turn, character_turns):
         return 0, "Персонаж атакует, но монстр уворачивается!"
 
     # Base damage
-    base_damage = (
-        character_data["weapon"]["damage"] + character_data["attributes"]["strength"]
-    )
+    base_damage = character_data["weapon"]["damage"] + character_data["attributes"]["strength"]
     total_damage = base_damage
 
     # Apply character bonuses
