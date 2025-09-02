@@ -10,7 +10,7 @@ def rand_1_to_3():
 class CharacterClass(models.Model):
     name = models.CharField(max_length=20)
     health_per_level = models.IntegerField()
-    initial_weapon = models.ForeignKey('Weapon', on_delete=models.CASCADE)
+    initial_weapon = models.ForeignKey("Weapon", on_delete=models.CASCADE)
     level1_bonus = models.TextField()
     level2_bonus = models.TextField()
     level3_bonus = models.TextField()
@@ -21,9 +21,9 @@ class CharacterClass(models.Model):
 
 class Weapon(models.Model):
     DAMAGE_TYPES = (
-        ('slashing', 'Рубящий'),
-        ('bludgeoning', 'Дробящий'),
-        ('piercing', 'Колющий'),
+        ("slashing", "Рубящий"),
+        ("bludgeoning", "Дробящий"),
+        ("piercing", "Колющий"),
     )
 
     name = models.CharField(max_length=30)
@@ -42,7 +42,7 @@ class Monster(models.Model):
     agility = models.IntegerField()
     endurance = models.IntegerField()
     features = models.TextField(blank=True)
-    reward_weapon = models.ForeignKey('Weapon', on_delete=models.CASCADE)
+    reward_weapon = models.ForeignKey("Weapon", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

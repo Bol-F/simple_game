@@ -108,3 +108,120 @@ INFO 2025-09-02 22:35:15,016 basehttp 1068 2900 "POST /api/character/creation/ H
 INFO 2025-09-02 22:35:15,071 basehttp 1068 2900 "GET /battle/ HTTP/1.1" 200 1911
 WARNING 2025-09-02 22:35:15,123 log 1068 2900 Not Found: /api/character/current/
 WARNING 2025-09-02 22:35:15,125 basehttp 1068 2900 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:47:05,357 autoreload 13156 15420 Watching for file changes with StatReloader
+WARNING 2025-09-02 22:47:07,695 log 13156 13380 Not Found: /
+WARNING 2025-09-02 22:47:07,696 basehttp 13156 13380 "GET / HTTP/1.1" 404 4586
+INFO 2025-09-02 22:47:12,125 basehttp 13156 13380 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:47:12,143 basehttp 13156 13380 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-02 22:47:12,224 basehttp 13156 9540 "GET /static/js/game.js HTTP/1.1" 200 17356
+INFO 2025-09-02 22:47:12,233 views 13156 9540 Found 3 character classes
+INFO 2025-09-02 22:47:12,255 basehttp 13156 9540 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:47:17,370 views 13156 9540 Received character creation request: {'class_id': '4', 'strength': 3, 'agility': 2, 'endurance': 2}
+INFO 2025-09-02 22:47:17,374 views 13156 9540 Class ID: 4, Strength: 3, Agility: 2, Endurance: 2
+INFO 2025-09-02 22:47:17,374 views 13156 9540 Session key: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:47:17,379 views 13156 9540 Character data: {'class_levels': {'воин': 1}, 'attributes': {'strength': 3, 'agility': 2, 'endurance': 2}, 'weapon': {'id': 7, 'name': 'Меч', 'damage': 3, 'damage_type': 'slashing'}, 'health': 7, 'max_health': 7, 'total_level': 1, 'battle_log': []}
+INFO 2025-09-02 22:47:17,435 views 13156 9540 Game session updated: GameSession kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:47:17,450 basehttp 13156 9540 "POST /api/character/creation/ HTTP/1.1" 200 213
+INFO 2025-09-02 22:47:17,494 basehttp 13156 9540 "GET /battle/ HTTP/1.1" 200 1911
+WARNING 2025-09-02 22:47:17,555 log 13156 9540 Not Found: /api/character/current/
+WARNING 2025-09-02 22:47:17,560 basehttp 13156 9540 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:47:19,916 basehttp 13156 9540 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:47:19,941 views 13156 9540 Found 3 character classes
+INFO 2025-09-02 22:47:19,959 basehttp 13156 9540 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:47:31,056 views 13156 9540 Received character creation request: {'class_id': '5', 'strength': 3, 'agility': 1, 'endurance': 2}
+INFO 2025-09-02 22:47:31,056 views 13156 9540 Class ID: 5, Strength: 3, Agility: 1, Endurance: 2
+INFO 2025-09-02 22:47:31,057 views 13156 9540 Session key: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:47:31,060 views 13156 9540 Character data: {'class_levels': {'варвар': 1}, 'attributes': {'strength': 3, 'agility': 1, 'endurance': 2}, 'weapon': {'id': 8, 'name': 'Дубина', 'damage': 3, 'damage_type': 'bludgeoning'}, 'health': 8, 'max_health': 8, 'total_level': 1, 'battle_log': []}
+INFO 2025-09-02 22:47:31,077 views 13156 9540 Game session updated: GameSession kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:47:31,103 basehttp 13156 9540 "POST /api/character/creation/ HTTP/1.1" 200 226
+INFO 2025-09-02 22:47:31,151 basehttp 13156 9540 "GET /battle/ HTTP/1.1" 200 1911
+INFO 2025-09-02 22:47:31,168 basehttp 13156 9540 "GET /static/js/game.js HTTP/1.1" 304 0
+WARNING 2025-09-02 22:47:31,212 log 13156 9540 Not Found: /api/character/current/
+WARNING 2025-09-02 22:47:31,214 basehttp 13156 9540 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:47:33,117 basehttp 13156 9540 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:47:33,139 views 13156 9540 Found 3 character classes
+INFO 2025-09-02 22:47:33,158 basehttp 13156 9540 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:55,010 basehttp 13156 8736 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:55,023 basehttp 13156 8736 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-09-02 22:50:55,025 basehttp 13156 2536 "GET /static/js/game.js HTTP/1.1" 304 0
+INFO 2025-09-02 22:50:55,035 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:55,048 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:56,083 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:56,104 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:56,121 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:56,655 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:56,677 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:56,702 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:57,234 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:57,256 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:57,281 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:57,961 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:57,985 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:58,007 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:58,376 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:58,401 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:58,421 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:58,727 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:58,749 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:58,770 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:58,993 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:59,014 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:59,038 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:59,547 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:59,572 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:59,596 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:50:59,866 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:50:59,883 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:50:59,905 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:00,330 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:00,355 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:00,374 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:00,690 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:00,717 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:00,740 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:01,112 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:01,130 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:01,146 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:01,475 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:01,493 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:01,509 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:01,901 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:01,925 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:01,952 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:02,527 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:02,551 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:02,571 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:03,124 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:03,146 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:03,172 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:03,645 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:03,667 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:03,693 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:04,077 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:04,101 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:04,129 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:04,369 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:04,389 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:04,420 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:04,735 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:04,754 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:04,772 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:05,104 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:05,122 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:05,140 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:10,328 views 13156 2536 Received character creation request: {'class_id': '6', 'strength': 1, 'agility': 3, 'endurance': 3}
+INFO 2025-09-02 22:51:10,339 views 13156 2536 Class ID: 6, Strength: 1, Agility: 3, Endurance: 3
+INFO 2025-09-02 22:51:10,373 views 13156 2536 Session key: kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:51:10,381 views 13156 2536 Character data: {'class_levels': {'разбойник': 1}, 'attributes': {'strength': 1, 'agility': 3, 'endurance': 3}, 'weapon': {'id': 9, 'name': 'Кинжал', 'damage': 2, 'damage_type': 'piercing'}, 'health': 7, 'max_health': 7, 'total_level': 1, 'battle_log': []}
+INFO 2025-09-02 22:51:10,436 views 13156 2536 Game session updated: GameSession kfw530bhv9042njhl3fp34dr7lx4eglp
+INFO 2025-09-02 22:51:10,478 basehttp 13156 2536 "POST /api/character/creation/ HTTP/1.1" 200 229
+INFO 2025-09-02 22:51:10,539 basehttp 13156 2536 "GET /battle/ HTTP/1.1" 200 1911
+WARNING 2025-09-02 22:51:10,594 log 13156 2536 Not Found: /api/character/current/
+WARNING 2025-09-02 22:51:10,601 basehttp 13156 2536 "GET /api/character/current/ HTTP/1.1" 404 4670
+INFO 2025-09-02 22:51:15,167 basehttp 13156 2536 "GET /character-creation/ HTTP/1.1" 200 7244
+INFO 2025-09-02 22:51:15,197 views 13156 2536 Found 3 character classes
+INFO 2025-09-02 22:51:15,219 basehttp 13156 2536 "GET /api/character/creation/ HTTP/1.1" 200 1132
+INFO 2025-09-02 22:51:22,151 autoreload 13156 15420 C:\Users\User\PycharmProjects\simple_game\game\views.py changed, reloading.
+INFO 2025-09-02 22:51:22,787 autoreload 10348 16124 Watching for file changes with StatReloader
+INFO 2025-09-02 22:51:39,818 autoreload 10348 16124 C:\Users\User\PycharmProjects\simple_game\game\models.py changed, reloading.
+INFO 2025-09-02 22:51:40,349 autoreload 7092 9932 Watching for file changes with StatReloader

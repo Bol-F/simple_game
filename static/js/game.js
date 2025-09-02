@@ -393,3 +393,63 @@ function initWeaponSelection() {
             });
     });
 }
+
+// Add this function to help with debugging
+function debugLog(message, data = null) {
+    console.log(`[DEBUG] ${message}`, data || '');
+}
+
+// In your character creation code, add debug logs:
+document.getElementById('create-character').addEventListener('click', function () {
+    debugLog('Create button clicked');
+    debugLog('Selected class ID:', selectedClassId);
+
+    if (!selectedClassId) {
+        const errorDiv = document.getElementById('error-message');
+        errorDiv.textContent = 'Пожалуйста, выберите класс';
+        errorDiv.classList.remove('hidden');
+        return;
+    }
+
+    debugLog('Sending request to create character', {
+        class_id: selectedClassId,
+        strength: attributes.strength,
+        agility: attributes.agility,
+        endurance: attributes.endurance
+    });
+
+    // Create character via API
+    fetch('/api/character/creation/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+            class_id: selectedClassId,
+            strength: attributes.strength,
+            agility: attributes.agility,
+            endurance: attributes.endurance
+        })
+    })
+        .then(response => {
+            debugLog('Response status:', response.status);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            debugLog('Character created successfully:', data);
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+
+            window.location.href = '/battle/';
+        })
+        .catch(error => {
+            debugLog('Error creating character:', error);
+            alert('Ошибка при создании персонажа: ' + error.message);
+        });
+});

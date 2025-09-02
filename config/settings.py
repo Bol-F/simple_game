@@ -36,11 +36,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     # Third-party apps
     "rest_framework",
     "corsheaders",
-
     # Local apps
     "game",
 ]
@@ -248,11 +246,7 @@ RPG_GAME_SETTINGS = {
     "MAX_CHARACTER_LEVEL": 3,
     "MONSTERS_TO_WIN": 5,
     "WEAPON_DROP_CHANCE": 1.0,  # 100% chance for weapon drop (as per your game design)
-    "DEFAULT_WEAPONS": {
-        "warrior": "Меч",
-        "barbarian": "Дубина",
-        "rogue": "Кинжал"
-    },
+    "DEFAULT_WEAPONS": {"warrior": "Меч", "barbarian": "Дубина", "rogue": "Кинжал"},
     "MAX_BATTLE_TURNS": 50,  # Prevent infinite battles
 }
 
