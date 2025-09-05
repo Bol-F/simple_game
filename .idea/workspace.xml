@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dae1be6d-3496-40f0-b60a-72e7b4f54676" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/game/battle_engine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/management/commands/init_game_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/game/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/management/commands/populate_db.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/validators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/populate_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/battle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/character_creation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/game.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/battle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/character_creation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game_over.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/level_up.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/victory.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/weapon_selection.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +110,9 @@
       <workItem from="1756801686235" duration="7684000" />
       <workItem from="1756827489371" duration="11995000" />
       <workItem from="1756921243778" duration="7480000" />
-      <workItem from="1757055782294" duration="3132000" />
+      <workItem from="1757055782294" duration="3863000" />
+      <workItem from="1757059836475" duration="116000" />
+      <workItem from="1757092617362" duration="305000" />
     </task>
     <servers />
   </component>
