@@ -1,7 +1,3 @@
-"""
-Django settings for config project.
-"""
-
 import os
 from pathlib import Path
 
@@ -15,7 +11,7 @@ SECRET_KEY = "django-insecure-&(8n^izekm^*%(98f0s#vh%w*i4s#x0@90eu#xp&davcsag4e8
 DEBUG = True
 
 # Allow localhost testing and local development
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0", "*"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -127,6 +123,35 @@ MEDIA_ROOT = BASE_DIR / "media"
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Session configuration - CRITICAL FOR YOUR GAME
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+SESSION_COOKIE_AGE = 3600  # 1 hour
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+SESSION_SAVE_EVERY_REQUEST = True
+
+# Security settings for development
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+CSRF_COOKIE_HTTPONLY = False
+CSRF_USE_SESSIONS = False
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
+
+# Custom settings for your RPG game
+RPG_GAME_SETTINGS = {
+    "MAX_CHARACTER_LEVEL": 3,
+    "MONSTERS_TO_WIN": 5,
+    "WEAPON_DROP_CHANCE": 1.0,
+    "DEFAULT_WEAPONS": {"warrior": "Меч", "barbarian": "Дубина", "rogue": "Кинжал"},
+    "MAX_BATTLE_TURNS": 50,
+}
+
+# Email settings for development
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 # Logging configuration for debugging
 LOGGING = {
     "version": 1,
@@ -169,35 +194,6 @@ LOGGING = {
         },
     },
 }
-
-# Session configuration - CRITICAL FOR YOUR GAME
-SESSION_ENGINE = "django.contrib.sessions.backends.db"
-SESSION_COOKIE_AGE = 3600  # 1 hour
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-SESSION_SAVE_EVERY_REQUEST = True
-
-# Security settings for development
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
-SECURE_SSL_REDIRECT = False
-CSRF_COOKIE_HTTPONLY = False
-CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-]
-
-# Custom settings for your RPG game
-RPG_GAME_SETTINGS = {
-    "MAX_CHARACTER_LEVEL": 3,
-    "MONSTERS_TO_WIN": 5,
-    "WEAPON_DROP_CHANCE": 1.0,
-    "DEFAULT_WEAPONS": {"warrior": "Меч", "barbarian": "Дубина", "rogue": "Кинжал"},
-    "MAX_BATTLE_TURNS": 50,
-}
-
-# Email settings
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Production overrides
 if not DEBUG:

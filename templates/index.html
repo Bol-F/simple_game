@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пошаговый Автобаттлер</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .game-area {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            min-height: 600px;
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .character-panel h2,
+        .battle-panel h2,
+        .monster-panel h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .health-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .health-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .button.primary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .button.success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .class-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .battle-log {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .battle-log::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .battle-log::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .battle-log::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .log-entry {
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .weapon-info {
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .level-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .level-badge {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 5px 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .progress-info {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .game-area {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .class-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .monster-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .reward-weapon {
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗡️ Пошаговый Автобаттлер ⚔️</h1>
+            <div class="progress-info">
+                <span id="monsters-defeated">Побеждено монстров: 0</span> / 5
+            </div>
+        </div>
+
+        <!-- Character Creation Screen -->
+        <div id="character-creation" class="panel">
+            <h2>Создание персонажа</h2>
+            <div id="stats-display" class="hidden">
+                <h3>Ваши характеристики:</h3>
+                <div class="stat-item">
+                    <span>Сила:</span>
+                    <span id="initial-strength">?</span>
+                </div>
+                <div class="stat-item">
+                    <span>Ловкость:</span>
+                    <span id="initial-agility">?</span>
+                </div>
+                <div class="stat-item">
+                    <span>Выносливость:</span>
+                    <span id="initial-endurance">?</span>
+                </div>
+            </div>
+            
+            <h3>Выберите класс персонажа:</h3>
+            <div class="class-selection">
+                <button class="button" onclick="createCharacter('rogue')">
+                    🗡️ Разбойник<br>
+                    <small>4 HP/уровень<br>Кинжал</small>
+                </button>
+                <button class="button" onclick="createCharacter('warrior')">
+                    ⚔️ Воин<br>
+                    <small>5 HP/уровень<br>Меч</small>
+                </button>
+                <button class="button" onclick="createCharacter('barbarian')">
+                    🪓 Варвар<br>
+                    <small>6 HP/уровень<br>Дубина</small>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Game Area -->
+        <div id="game-area" class="game-area hidden">
+            <!-- Character Panel -->
+            <div class="character-panel panel">
+                <h2>👤 Персонаж</h2>
+                
+                <div class="health-bar">
+                    <div id="character-health-fill" class="health-fill"></div>
+                </div>
+                <div id="character-health-text">❤️ HP: 0/0</div>
+                
+                <div class="level-info">
+                    <div class="level-badge">
+                        🗡️ Разбойник<br>
+                        <span id="rogue-level">0</span>
+                    </div>
+                    <div class="level-badge">
+                        ⚔️ Воин<br>
+                        <span id="warrior-level">0</span>
+                    </div>
+                    <div class="level-badge">
+                        🪓 Варвар<br>
+                        <span id="barbarian-level">0</span>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <span>💪 Сила:</span>
+                    <span id="character-strength">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>🏃 Ловкость:</span>
+                    <span id="character-agility">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>🛡️ Выносливость:</span>
+                    <span id="character-endurance">0</span>
+                </div>
+
+                <div class="weapon-info">
+                    <div id="character-weapon">🗡️ Оружие: Нет</div>
+                </div>
+
+                <!-- Level Up Section -->
+                <div id="levelup-section" class="hidden">
+                    <h3>Повышение уровня:</h3>
+                    <div class="class-selection">
+                        <button class="button" onclick="levelUpCharacter('rogue')">
+                            🗡️ Разбойник
+                        </button>
+                        <button class="button" onclick="levelUpCharacter('warrior')">
+                            ⚔️ Воин
+                        </button>
+                        <button class="button" onclick="levelUpCharacter('barbarian')">
+                            🪓 Варвар
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Weapon Change Section -->
+                <div id="weapon-change-section" class="hidden">
+                    <h3>Новое оружие найдено!</h3>
+                    <div id="new-weapon-info"></div>
+                    <button id="accept-weapon-btn" class="button success">Взять оружие</button>
+                    <button onclick="hideWeaponChange()" class="button">Оставить текущее</button>
+                </div>
+            </div>
+
+            <!-- Battle Panel -->
+            <div class="battle-panel panel">
+                <h2>⚔️ Арена боя</h2>
+                
+                <button id="battle-btn" class="button primary" onclick="startBattle()">
+                    Начать бой!
+                </button>
+                
+                <div class="battle-log" id="battle-log">
+                    Готовьтесь к бою...
+                </div>
+
+                <div id="battle-actions" class="hidden">
+                    <button id="continue-btn" class="button success hidden" onclick="continueBattle()">
+                        Продолжить
+                    </button>
+                    <button id="restart-btn" class="button hidden" onclick="restartGame()">
+                        Создать нового персонажа
+                    </button>
+                </div>
+            </div>
+
+            <!-- Monster Panel -->
+            <div class="monster-panel panel">
+                <h2>👹 Противник</h2>
+                
+                <div id="monster-info" class="hidden">
+                    <div class="monster-card">
+                        <h3 id="monster-name">Неизвестный монстр</h3>
+                        
+                        <div class="health-bar">
+                            <div id="monster-health-fill" class="health-fill"></div>
+                        </div>
+                        <div id="monster-health-text">❤️ HP: 0/0</div>
+
+                        <div class="stat-item">
+                            <span>💪 Сила:</span>
+                            <span id="monster-strength">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>🏃 Ловкость:</span>
+                            <span id="monster-agility">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>🛡️ Выносливость:</span>
+                            <span id="monster-endurance">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>⚔️ Урон оружия:</span>
+                            <span id="monster-weapon-damage">0</span>
+                        </div>
+
+                        <div id="monster-special" class="hidden">
+                            <strong>Особенность:</strong>
+                            <div id="monster-special-text"></div>
+                        </div>
+
+                        <div class="reward-weapon">
+                            <strong>🎁 Награда:</strong>
+                            <div id="monster-reward"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-monster" class="stat-item">
+                    Противник не выбран
+                </div>
+            </div>
+        </div>
+
+        <!-- Victory Screen -->
+        <div id="victory-screen" class="panel hidden">
+            <h2>🎉 Поздравляем!</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">
+                Вы победили всех монстров и прошли игру!
+            </p>
+            <div style="text-align: center;">
+                <button class="button primary" onclick="restartGame()">
+                    Играть снова
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let gameState = {
+            character: null,
+            currentMonster: null,
+            newWeapon: null,
+            sessionKey: null
+        };
+
+        // Utility functions
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function updateHealthBar(elementId, current, max) {
+            const percentage = max > 0 ? (current / max) * 100 : 0;
+            document.getElementById(elementId).style.width = percentage + '%';
+        }
+
+        function logToBattle(message) {
+            const battleLog = document.getElementById('battle-log');
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = message;
+            battleLog.appendChild(entry);
+            battleLog.scrollTop = battleLog.scrollHeight;
+        }
+
+        function clearBattleLog() {
+            document.getElementById('battle-log').innerHTML = 'Готовьтесь к бою...';
+        }
+
+        // Character creation
+        async function createCharacter(characterClass) {
+            try {
+                const response = await fetch('/api/character/create/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken') || ''
+                    },
+                    body: JSON.stringify({ class: characterClass })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    gameState.character = data.character;
+                    
+                    // Show initial stats
+                    document.getElementById('initial-strength').textContent = data.stats.strength;
+                    document.getElementById('initial-agility').textContent = data.stats.agility;
+                    document.getElementById('initial-endurance').textContent = data.stats.endurance;
+                    document.getElementById('stats-display').classList.remove('hidden');
+                    
+                    // Switch to main game
+                    setTimeout(() => {
+                        document.getElementById('character-creation').classList.add('hidden');
+                        document.getElementById('game-area').classList.remove('hidden');
+                        updateCharacterDisplay();
+                    }, 2000);
+                } else {
+                    alert('Ошибка создания персонажа');
+                }
+            } catch (error) {
+                console.error('Error creating character:', error);
+                alert('Ошибка соединения с сервером');
+            }
+        }
+
+        function updateCharacterDisplay() {
+            if (!gameState.character) return;
+
+            const char = gameState.character;
+            
+            // Health
+            document.getElementById('character-health-text').textContent = 
+                `❤️ HP: ${char.current_health}/${char.max_health}`;
+            updateHealthBar('character-health-fill', char.current_health, char.max_health);
+            
+            // Stats
+            document.getElementById('character-strength').textContent = char.strength;
+            document.getElementById('character-agility').textContent = char.agility;
+            document.getElementById('character-endurance').textContent = char.endurance;
+            
+            // Levels
+            document.getElementById('rogue-level').textContent = char.rogue_level;
+            document.getElementById('warrior-level').textContent = char.warrior_level;
+            document.getElementById('barbarian-level').textContent = char.barbarian_level;
+            
+            // Weapon
+            if (char.current_weapon) {
+                document.getElementById('character-weapon').innerHTML = 
+                    `🗡️ ${char.current_weapon.name}<br>
+                     <small>Урон: ${char.current_weapon.damage} (${char.current_weapon.weapon_type_display})</small>`;
+            }
+            
+            // Progress
+            document.getElementById('monsters-defeated').textContent = 
+                `Побеждено монстров: ${char.monsters_defeated}`;
+        }
+
+        function updateMonsterDisplay() {
+            if (!gameState.currentMonster) {
+                document.getElementById('monster-info').classList.add('hidden');
+                document.getElementById('no-monster').classList.remove('hidden');
+                return;
+            }
+
+            const monster = gameState.currentMonster;
+            
+            document.getElementById('no-monster').classList.add('hidden');
+            document.getElementById('monster-info').classList.remove('hidden');
+            
+            document.getElementById('monster-name').textContent = monster.name;
+            document.getElementById('monster-health-text').textContent = 
+                `❤️ HP: ${monster.health}/${monster.health}`;
+            updateHealthBar('monster-health-fill', monster.health, monster.health);
+            
+            document.getElementById('monster-strength').textContent = monster.strength;
+            document.getElementById('monster-agility').textContent = monster.agility;
+            document.getElementById('monster-endurance').textContent = monster.endurance;
+            document.getElementById('monster-weapon-damage').textContent = monster.weapon_damage;
+            
+            if (monster.special_ability) {
+                document.getElementById('monster-special').classList.remove('hidden');
+                document.getElementById('monster-special-text').textContent = monster.special_ability;
+            } else {
+                document.getElementById('monster-special').classList.add('hidden');
+            }
+            
+            if (monster.reward_weapon) {
+                document.getElementById('monster-reward').innerHTML = 
+                    `${monster.reward_weapon.name} (Урон: ${monster.reward_weapon.damage})`;
+            }
+        }
+
+        // Battle system
+        async function startBattle() {
+            try {
+                document.getElementById('battle-btn').disabled = true;
+                clearBattleLog();
+                logToBattle('Начинается поиск противника...');
+
+                const response = await fetch('/api/battle/start/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken') || ''
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    gameState.currentMonster = data.monster;
+                    gameState.character = data.character;
+                    
+                    updateMonsterDisplay();
+                    updateCharacterDisplay();
+                    
+                    // Show battle log
+                    const battleLog = JSON.parse(data.battle_result.log);
+                    battleLog.forEach(entry => {
+                        logToBattle(entry);
+                    });
+                    
+                    // Update health during battle
+                    updateHealthBar('character-health-fill', 
+                        data.battle_result.character_hp, gameState.character.max_health);
+                    updateHealthBar('monster-health-fill', 
+                        data.battle_result.monster_hp, gameState.currentMonster.health);
+                    
+                    // Show appropriate buttons
+                    document.getElementById('battle-actions').classList.remove('hidden');
+                    
+                    if (data.battle_result.winner === 'character') {
+                        // Victory
+                        logToBattle('🎉 Победа! Здоровье восстановлено.');
+                        
+                        if (gameState.character.monsters_defeated >= 5) {
+                            // Game completed
+                            setTimeout(() => {
+                                document.getElementById('game-area').classList.add('hidden');
+                                document.getElementById('victory-screen').classList.remove('hidden');
+                            }, 2000);
+                            return;
+                        }
+                        
+                        // Show weapon and level up options
+                        if (gameState.character.total_level < 3) {
+                            document.getElementById('levelup-section').classList.remove('hidden');
+                        }
+                        
+                        gameState.newWeapon = gameState.currentMonster.reward_weapon;
+                        showWeaponChange();
+                        
+                        document.getElementById('continue-btn').classList.remove('hidden');
+                    } else {
+                        // Defeat
+                        logToBattle('💀 Поражение...');
+                        document.getElementById('restart-btn').classList.remove('hidden');
+                    }
+                } else {
+                    alert('Ошибка начала боя');
+                }
+            } catch (error) {
+                console.error('Error starting battle:', error);
+                alert('Ошибка соединения с сервером');
+            } finally {
+                document.getElementById('battle-btn').disabled = false;
+            }
+        }
+
+        function continueBattle() {
+            document.getElementById('battle-actions').classList.add('hidden');
+            document.getElementById('continue-btn').classList.add('hidden');
+            document.getElementById('levelup-section').classList.add('hidden');
+            document.getElementById('weapon-change-section').classList.add('hidden');
+            
+            clearBattleLog();
+            gameState.currentMonster = null;
+            updateMonsterDisplay();
+        }
+
+        // Level up system
+        async function levelUpCharacter(characterClass) {
+            try {
+                const response = await fetch('/api/character/levelup/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken') || ''
+                    },
+                    body: JSON.stringify({ class: characterClass })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    gameState.character = data.character;
+                    updateCharacterDisplay();
+                    document.getElementById('levelup-section').classList.add('hidden');
+                    logToBattle(`✨ Уровень ${characterClass} повышен!`);
+                } else {
+                    const error = await response.json();
+                    alert(error.error || 'Ошибка повышения уровня');
+                }
+            } catch (error) {
+                console.error('Error leveling up:', error);
+                alert('Ошибка соединения с сервером');
+            }
+        }
+
+        // Weapon system
+        function showWeaponChange() {
+            if (!gameState.newWeapon) return;
+            
+            document.getElementById('weapon-change-section').classList.remove('hidden');
+            document.getElementById('new-weapon-info').innerHTML = 
+                `<strong>${gameState.newWeapon.name}</strong><br>
+                 Урон: ${gameState.newWeapon.damage} (${gameState.newWeapon.weapon_type_display})`;
+            
+            document.getElementById('accept-weapon-btn').onclick = () => changeWeapon(gameState.newWeapon.id);
+        }
+
+        function hideWeaponChange() {
+            document.getElementById('weapon-change-section').classList.add('hidden');
+            gameState.newWeapon = null;
+        }
+
+        async function changeWeapon(weaponId) {
+            try {
+                const response = await fetch('/api/character/weapon/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken') || ''
+                    },
+                    body: JSON.stringify({ weapon_id: weaponId })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    gameState.character = data.character;
+                    updateCharacterDisplay();
+                    hideWeaponChange();
+                    logToBattle(`🗡️ Оружие заменено на ${data.new_weapon.name}!`);
+                } else {
+                    alert('Ошибка смены оружия');
+                }
+            } catch (error) {
+                console.error('Error changing weapon:', error);
+                alert('Ошибка соединения с сервером');
+            }
+        }
+
+        function restartGame() {
+            // Reset game state
+            gameState = {
+                character: null,
+                currentMonster: null,
+                newWeapon: null,
+                sessionKey: null
+            };
+            
+            // Show character creation
+            document.getElementById('game-area').classList.add('hidden');
+            document.getElementById('victory-screen').classList.add('hidden');
+            document.getElementById('character-creation').classList.remove('hidden');
+            document.getElementById('stats-display').classList.add('hidden');
+            
+            // Reset displays
+            clearBattleLog();
+            document.getElementById('monsters-defeated').textContent = 'Побеждено монстров: 0';
+        }
+
+        // Initialize game
+        document.addEventListener('DOMContentLoaded', function() {
+            // Try to load existing character
+            fetch('/api/character/status/')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('No character found');
+                })
+                .then(data => {
+                    gameState.character = data;
+                    document.getElementById('character-creation').classList.add('hidden');
+                    document.getElementById('game-area').classList.remove('hidden');
+                    updateCharacterDisplay();
+                })
+                .catch(() => {
+                    // No existing character, show creation screen
+                    console.log('No existing character, starting fresh');
+                });
+        });
+    </script>
+</body>
+</html>
